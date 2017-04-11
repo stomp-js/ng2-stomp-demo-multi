@@ -5,7 +5,6 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { StatusComponent } from './status.component';
-import { STOMPService } from '../../services/stomp';
 
 describe('StatusComponent', () => {
   let component: StatusComponent;
@@ -14,7 +13,7 @@ describe('StatusComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [StatusComponent],
-      providers: [STOMPService]
+      providers: []
     })
       .compileComponents();
   }));

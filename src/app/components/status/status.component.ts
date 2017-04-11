@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { STOMPService, STOMPState } from '../../services/stomp';
+import {STOMPService, STOMPState} from '@stomp/ng2-stompjs/dist/src/stomp.service';
 
 @Component({
   selector: 'app-status',

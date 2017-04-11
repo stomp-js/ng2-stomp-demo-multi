@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Message } from '@stomp/stompjs';
+import {Message} from '@stomp/stompjs';
 
-import { STOMPService } from '../../services/stomp';
 import { Subscription } from 'rxjs/Subscription';
+import {STOMPService} from '@stomp/ng2-stompjs/dist/src/stomp.service';
 
 @Component({
   selector: 'app-rawdata',
   templateUrl: './rawdata.component.html',
   styleUrls: ['./rawdata.component.css'],
-  providers: [STOMPService]
+  providers: []
 })
 export class RawDataComponent implements OnInit, OnDestroy {
 

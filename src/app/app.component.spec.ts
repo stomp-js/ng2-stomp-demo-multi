@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RawDataComponent } from './components/rawdata/rawdata.component';
 import { StatusComponent } from './components/status/status.component';
-import { ConfigService } from './services/config/config.service';
 
 describe('App: Ng2StompjsDemo', () => {
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('App: Ng2StompjsDemo', () => {
       imports: [
         HttpModule
       ],
-      providers: [ConfigService]
+      providers: []
     });
   });
 

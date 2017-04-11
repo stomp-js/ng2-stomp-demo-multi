@@ -1,13 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { RawDataComponent } from './components/rawdata/rawdata.component';
-import { StatusComponent } from './components/status/status.component';
+import {AppComponent} from './app.component';
+import {RawDataComponent} from './components/rawdata/rawdata.component';
+import {StatusComponent} from './components/status/status.component';
+import {ConfigService} from './services/config/config.service';
+import {StompConfigService, STOMPService} from "@stomp/ng2-stompjs/dist";
 
-import { ConfigService } from './services/config/config.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,15 @@ import { ConfigService } from './services/config/config.service';
     FormsModule,
     HttpModule
   ],
-  providers: [ConfigService],
+  providers: [
+    STOMPService,
+    {
+      provide: StompConfigService,
+      useClass: ConfigService
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
