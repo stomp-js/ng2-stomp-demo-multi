@@ -9,8 +9,6 @@ import {StatusComponent} from './components/status/status.component';
 import {ConfigService} from './services/config/config.service';
 import {StompConfigService, StompService} from "@stomp/ng2-stompjs";
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

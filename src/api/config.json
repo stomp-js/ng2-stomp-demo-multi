@@ -1,8 +1,5 @@
 {
-    "host": "127.0.0.1",
-    "port": 15674,
-    "https": false,
-    "path": "ws",
+    "url": "ws://127.0.0.1:15674/ws",
 
     "user": "guest",
     "pass": "guest",
