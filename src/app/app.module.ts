@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {RawDataComponent} from './components/rawdata/rawdata.component';
 import {StatusComponent} from './components/status/status.component';
 import {ConfigService} from './services/config/config.service';
-import {StompConfigService, STOMPService} from "@stomp/ng2-stompjs/dist";
+import {StompConfigService, StompService} from "@stomp/ng2-stompjs";
 
 
 
@@ -23,7 +23,7 @@ import {StompConfigService, STOMPService} from "@stomp/ng2-stompjs/dist";
     HttpModule
   ],
   providers: [
-    STOMPService,
+    StompService,
     {
       provide: StompConfigService,
       useClass: ConfigService

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import {Message} from '@stomp/stompjs';
 
 import { Subscription } from 'rxjs/Subscription';
-import {STOMPService} from '@stomp/ng2-stompjs/dist/src/stomp.service';
+import {StompService} from '@stomp/ng2-stompjs';
 
 @Component({
   selector: 'app-rawdata',
@@ -29,7 +29,7 @@ export class RawDataComponent implements OnInit, OnDestroy {
   private _counter = 1;
 
   /** Constructor */
-  constructor(private _stompService: STOMPService) { }
+  constructor(private _stompService: StompService) { }
 
   ngOnInit() {
     this.subscribed = false;
