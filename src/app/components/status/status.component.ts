@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {StompService, StompState} from '@stomp/ng2-stompjs';
+import {StompState} from '@stomp/ng2-stompjs';
+import {OrdersStompService} from "../../stomp-services/orders-stomp.service";
 
 @Component({
   selector: 'app-status',
@@ -12,7 +13,7 @@ export class StatusComponent implements OnInit {
   public state: Observable<string>;
 
   /** Constructor */
-  constructor(private _stompService: StompService) { }
+  constructor(private _stompService: OrdersStompService) { }
 
   ngOnInit() {
     console.log('Status init');

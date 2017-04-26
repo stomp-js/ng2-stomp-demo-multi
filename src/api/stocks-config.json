@@ -1,0 +1,11 @@
+{
+  "url": "ws://127.0.0.1:15674/ws",
+  "headers": {
+    "login": "guest",
+    "passcode": "guest"
+  },
+  "heartbeat_in": 0,
+  "heartbeat_out": 19000,
+  "reconnect_delay": 5000,
+  "debug": true
+}

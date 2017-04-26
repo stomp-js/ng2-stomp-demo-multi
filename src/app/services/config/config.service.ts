@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import {StompConfig, StompConfigService} from '@stomp/ng2-stompjs';
+import {StompConfig, StompConfigService, StompService} from '@stomp/ng2-stompjs';
 
 /**
  * An injected class which grabs the application
@@ -19,22 +19,20 @@ import {StompConfig, StompConfigService} from '@stomp/ng2-stompjs';
 @Injectable()
 export class ConfigService extends StompConfigService {
 
-  /** Constructor */
-  constructor(private _http: Http) {
-    super();
-  }
+  private _path: string;
 
+  /** Constructor */
+  constructor(private _http: Http, path: string) {
+    super();
+    this._path = path;
+  }
 
   /** Make an http request for a config file, and
     * return a Promise for its resolution.
     */
   public get(): Observable<StompConfig> {
-    const path = '/src/api/config.json';
+    const path = this._path;
     return this._http.get(path)
       .map(res => res.json());
   }
-}
-
-export function configServiceFactory(_http: Http) {
-  return new ConfigService(_http);
 }
