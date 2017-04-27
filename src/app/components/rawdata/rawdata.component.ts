@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {Message} from '@stomp/stompjs';
+import { Http } from '@angular/http';
+import {StompService} from '@stomp/ng2-stompjs';
 
 import { Subscription } from 'rxjs/Subscription';
-import {OrdersStompService} from "../../stomp-services/orders-stomp.service";
-import {StocksStompService} from "../../stomp-services/stocks-stomp.service";
+import {stompServiceFactory} from '../../services/config/config.service';
 
 @Component({
   selector: 'app-rawdata',
@@ -29,8 +30,14 @@ export class RawDataComponent implements OnInit, OnDestroy {
 
   private _counter = 1;
 
+  private _orderStompService: StompService;
+  private _stocksStompService: StompService;
+
   /** Constructor */
-  constructor(private _orderStompService: OrdersStompService, private _stocksStompService: StocksStompService) { }
+  constructor(_http: Http) {
+    this._orderStompService = stompServiceFactory(_http, '/src/api/orders-config.json');
+    this._stocksStompService = stompServiceFactory(_http, '/src/api/stocks-config.json');
+  }
 
   ngOnInit() {
     this.subscribed = false;

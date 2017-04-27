@@ -36,3 +36,10 @@ export class ConfigService extends StompConfigService {
       .map(res => res.json());
   }
 }
+
+// The path can be absolute URL as well like http://127.0.0.1:4200/src/api/stocks-config.json
+export function stompServiceFactory(_http: Http, path: string) {
+  path = path || '/src/api/orders-config.json';
+  const configService = new ConfigService(_http, path);
+  return new StompService(configService);
+}

@@ -45,24 +45,16 @@ The app will automatically reload if you change any of the source files.
 
 Check the following files:
 
-- `src/app/services/config/config.service.ts` -
-  The configuration service. This service fetches a json file from a configurable location.
-- Files in `src/app/stomp-services` folders define each of the StompServices
-
-    - A class inherited from StompService is exported. This class is marked @Injectable().
-    - A factory is created which will create instance of this class. Notice that the factory
-      passes the path from where configuration JSON need to be fetched from. This path
-      can be a full URL as well.
-    - The class and factory is registered in `src/app/app.module.ts`.
-    
-- `src/app/app.module.ts` - Service provisions for
-  [Dependency Injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html).
-  See the section about using Factories.
-- `src/app/components/rawdata/rawdata.component.ts` - receives 2 different 
-  instances of StompService identified by different class names. These are fully functional
-  and independent instances. In this sample a queue is subscribed using one instance and
-  messages are published using another instance.
-- `src/app/components/status/status.component.ts` - monitoring status of Stomp connection.
+- `src/app/services/config/config.service.ts` - it has a generic factory method;
+  which will create StompServices as per given config. In this case it takes a
+  URL (relative or absolute).
+- This sample creates 3 StompServices with different configurations - 
+  two in constructor of `src/app/components/rawdata/rawdata.component.ts`
+  and one in constructor of 
+   `src/app/components/status/status.component.ts`
+- This approach does not use Dependency Injection. Notice that none of the
+  StompServices are listed in `app.module.ts`.
+  It will be your responsibly to create and manage instances.
 
 ## Contributors
 

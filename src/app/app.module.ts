@@ -6,8 +6,6 @@ import {Http, HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {RawDataComponent} from './components/rawdata/rawdata.component';
 import {StatusComponent} from './components/status/status.component';
-import {OrdersStompService, ordersStompServiceFactory} from "./stomp-services/orders-stomp.service";
-import {StocksStompService, stocksStompServiceFactory} from "./stomp-services/stocks-stomp.service";
 
 @NgModule({
   declarations: [
@@ -21,16 +19,6 @@ import {StocksStompService, stocksStompServiceFactory} from "./stomp-services/st
     HttpModule
   ],
   providers: [
-    {
-      provide: OrdersStompService,
-      useFactory: ordersStompServiceFactory,
-      deps: [Http]
-    },
-    {
-      provide: StocksStompService,
-      useFactory: stocksStompServiceFactory,
-      deps: [Http]
-    }
   ],
   bootstrap: [AppComponent]
 })
